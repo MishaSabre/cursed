@@ -28,7 +28,9 @@ public class Main {
         wok.setActiveForm(true);
         wok.transformation();
 
-
+        /*
+        Блок с маршализацией
+        */
         String json = gson.toJson(tin);
         String json1 = gson.toJson(tin2);
         String json2 = gson.toJson(wok);
@@ -48,6 +50,9 @@ public class Main {
 
             System.out.println(ex.getMessage());
         }
+        /*
+        Блок с демаршализацией
+        */
         try {
             File file = new File("cursed.json");
             //создаем объект FileReader для объекта File
@@ -64,10 +69,37 @@ public class Main {
                 if (line == null){
                     break;
                 }
-                    tins[count] = new Gson().fromJson(line, Swordsman.class);
+                tins[count] = new Gson().fromJson(line, Swordsman.class);
                 count++;
             }
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        /*
+        Блок с сериализацией
+        */
+        try{
+            FileOutputStream fos = new FileOutputStream( "C:\\Users\\Admin\\IdeaProjects\\j3\\tin.bin");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            System.out.println(tin.getArmor());
+
+            oos.writeObject(tin);
+
+            oos.close();
+        }catch (IOException e){
+            System.out.println(e);
+        }
+        /*
+        Блок с десериализацией
+        */
+        try {
+            FileInputStream fis = new FileInputStream("C:\\Users\\Admin\\IdeaProjects\\j3\\tin.bin");
+            ObjectInputStream oin = new ObjectInputStream(fis);
+            Swordsman swd = (Swordsman) oin.readObject();
+            System.out.println(swd.toString());
+
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -75,5 +107,5 @@ public class Main {
 
 
 
-    }
+}
 }
