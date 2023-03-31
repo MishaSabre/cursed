@@ -28,7 +28,9 @@ public class Main {
         wok.setActiveForm(true);
         wok.transformation();
 
-
+        /*
+        Блок с маршализацией 
+        */
         String json = gson.toJson(tin);
         String json1 = gson.toJson(tin2);
         String json2 = gson.toJson(wok);
@@ -48,6 +50,9 @@ public class Main {
 
             System.out.println(ex.getMessage());
         }
+        /*
+        Блок с демаршализацией
+        */
         try {
             File file = new File("cursed.json");
             //создаем объект FileReader для объекта File
