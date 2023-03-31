@@ -71,6 +71,9 @@ public class Main {
             e.printStackTrace();
         }
         
+        /*
+        Блок с сериализацией
+        */
         try{
             FileOutputStream fos = new FileOutputStream( "C:\\Users\\Admin\\IdeaProjects\\j3\\tin.bin");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
