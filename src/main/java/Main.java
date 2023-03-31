@@ -80,7 +80,7 @@ public class Main {
         Блок с сериализацией
         */
         try{
-            FileOutputStream fos = new FileOutputStream( "C:\\Users\\Admin\\IdeaProjects\\j3\\tin.bin");
+            FileOutputStream fos = new FileOutputStream( "tin.bin");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             System.out.println(tin.getArmor());
 
@@ -94,7 +94,7 @@ public class Main {
         Блок с десериализацией
         */
         try {
-            FileInputStream fis = new FileInputStream("C:\\Users\\Admin\\IdeaProjects\\j3\\tin.bin");
+            FileInputStream fis = new FileInputStream("tin.bin");
             ObjectInputStream oin = new ObjectInputStream(fis);
             Swordsman swd = (Swordsman) oin.readObject();
             System.out.println(swd.toString());
