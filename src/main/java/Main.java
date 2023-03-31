@@ -70,6 +70,19 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+        try{
+            FileOutputStream fos = new FileOutputStream( "C:\\Users\\Admin\\IdeaProjects\\j3\\tin.bin");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            oos.writeObject(tin);
+            oos.writeObject(tin2);
+            oos.writeObject(wok);
+
+            oos.close();
+        }catch (IOException e){
+            System.out.println(e);
+        }
 
         System.out.println(tins[0].toString() + "\n" + tins[1].toString() +"\n"+ tins[2].toString() );
 
